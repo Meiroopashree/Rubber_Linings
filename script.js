@@ -30,6 +30,39 @@ function updateTestimonial(index) {
     currentTestimonialIndex = index;
 }
 
+window.onload = function () {
+    updateTestimonial(0);
+};
+
+
+// function updateTestimonial(index) {
+//     const nameElement = document.getElementById('testimonial-name');
+//     const textElement = document.getElementById('testimonial-text');
+//     const dots = document.querySelectorAll('.dot');
+    
+//     // Optional: Temporarily hide to force layout recalculation
+//     textElement.style.display = 'none';
+
+//     // Update content
+//     nameElement.textContent = testimonials[index].name;
+//     textElement.innerText = testimonials[index].text;
+
+
+//     // Trigger reflow
+//     void textElement.offsetHeight;
+
+//     // Show again
+//     textElement.style.display = 'block';
+    
+//     // Update dots if used
+//     dots.forEach((dot, i) => {
+//         dot.classList.toggle('active', i === index);
+//     });
+
+//     currentTestimonialIndex = index;
+// }
+
+
 function nextTestimonial() {
     const nextIndex = (currentTestimonialIndex + 1) % testimonials.length;
     updateTestimonial(nextIndex);
@@ -280,3 +313,29 @@ const counters = document.querySelectorAll('.counter');
     .catch(err => {
       console.error('Error loading GIF JSON:', err);
     });
+
+
+const headings = [
+  { line1: "INNOVATION &", line2: "TECHNOLOGY" },
+  { line1: "QUALITY &", line2: "RELIABILITY" },
+  { line1: "EFFICIENCY &", line2: "SAFETY" },
+  { line1: "EXPERTISE &", line2: "EXPERIENCE" },
+  { line1: "PRECISION &", line2: "PERFORMANCE" }
+];
+
+const line1Element = document.getElementById("line1");
+const line2Element = document.getElementById("line2");
+
+let index = 0;
+
+// Set initial text
+line1Element.textContent = headings[index].line1;
+line2Element.textContent = headings[index].line2;
+
+// Rotate every 20 seconds
+setInterval(() => {
+  index = (index + 1) % headings.length;
+  line1Element.textContent = headings[index].line1;
+  line2Element.textContent = headings[index].line2;
+}, 2000);
+
