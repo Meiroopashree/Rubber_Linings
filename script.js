@@ -318,9 +318,9 @@ const counters = document.querySelectorAll('.counter');
 const headings = [
   { line1: "INNOVATION &", line2: "TECHNOLOGY" },
   { line1: "QUALITY &", line2: "RELIABILITY" },
-  { line1: "EFFICIENCY &", line2: "SAFETY" },
-  { line1: "EXPERTISE &", line2: "EXPERIENCE" },
-  { line1: "PRECISION &", line2: "PERFORMANCE" }
+  { line1: "INDUSTRY", line2: "EXPERIENCE" },
+  { line1: "CUSTOMER CENTERIC", line2: "RELATIONSHIP" },
+  { line1: "SUSTAINABILITY &", line2: "SAFETY" }
 ];
 
 const line1Element = document.getElementById("line1");
