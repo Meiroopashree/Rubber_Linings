@@ -1,3 +1,30 @@
+@import url("https://rsms.me/inter/inter.css");
+
+/* html {
+  font-family: "Inter", sans-serif;
+  background: #292929;
+  color: #edebeb;
+  padding: 1rem;
+} */
+
+/* @supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var experimental", sans-serif;
+  }
+} */
+
+.rotating-text {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.text-blue {
+  color: #02b0ff;
+  white-space: nowrap;
+}
+
+
 * {
     margin: 0;
     padding: 6px 8px;
@@ -173,15 +200,27 @@ body {
     }
 
     .menu {
-        display: none; /* hide by default on mobile */
+        display: none; /* hide menu by default */
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
         width: 100%;
     }
 
     .menu.show {
-        display: flex; /* show when toggled */
+        display: flex; /* show menu when hamburger clicked */
+    }
+
+    .menu nav {
+        display: flex;
+        flex-direction: column; /* stack vertically */
+        gap: 16px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 10px 0;
+        display: block; /* full width for better tap targets */
     }
 
 
@@ -190,20 +229,6 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .nav {
-        display: flex !important;
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .nav-link {
-        font-size: 14px;
-        text-decoration: none;
-        color: #374151;
-        padding: 8px 0;
     }
 }
 
@@ -641,14 +666,14 @@ body {
 .welcome-header h3 {
   color: #003554;
   font-size: 36px;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .welcome-header h2 {
   font-size: 48px;
   font-weight: 400;
   color: #216CE0;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 }
 
 .welcome-text p {
@@ -656,6 +681,7 @@ body {
   font-size: 20px;
   line-height: 1.7;
   margin-bottom: 24px;
+  margin-left: 10px;
 }
 
 .cta-btn {
@@ -739,16 +765,23 @@ body {
 
 .section-header p {
     color: #000000;
-    max-width: 512px;
+    max-width: 710px;
     margin: 0 auto;
     font-size: 20px;
     font-weight: 300px;
+    
+}
+
+.process .container
+{
+    display: flex;
+    justify-content: center;
 }
 
 .process-list {
     max-width: 800px;
     margin: 0 auto;
-    space-y: 16px;
+    /* space-y: 16px; */
 }
 
 .process-item {
@@ -767,9 +800,9 @@ body {
 
 }
 
-.process-header:hover {
+/* .process-header:hover {
     background: #f9fafb;
-}
+} */
 
 .process-icon {
     width: 48px;
@@ -882,22 +915,17 @@ body {
 
     .section-header p {
         font-size: 16px;
-    }
-
-    .process-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        padding-top: 20px;
     }
 
     .process-icon {
         margin-bottom: 12px;
-        margin-right: 0;
+        margin-right: 12;
     }
 
     .process-header h3 {
         font-size: 24px;
-        margin-left: 0;
+        margin-left: 0px;
     }
 
     .expand-icon {
@@ -912,10 +940,6 @@ body {
         font-size: 16px;
     }
 
-    .icon-inner {
-        width: 64px;
-        height: 64px;
-    }
 }
 
 /* Small devices (≤480px) */
@@ -929,25 +953,19 @@ body {
     }
 
     .process-header h3 {
-        font-size: 20px;
-    }
-
-    .expand-icon {
-        font-size: 20px;
+        font-size: 15px;
+        margin-left: 0px;
     }
 
     .process-content p {
         font-size: 15px;
     }
-
-    .icon-inner {
-        width: 48px;
-        height: 48px;
-    }
-
-    .process-icon {
-        width: 36px;
-        height: 36px;
+    /* .process-list
+    {
+        width: 100%;
+    } */
+    .expand-icon {
+        align-self: flex-end;
     }
 }
 
@@ -977,12 +995,11 @@ body {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .impact-text {
   flex: 1 1 400px;
-  max-width: 600px;
+  /* max-width: 600px; */
   width: 100%;
   text-align: center;
 }
@@ -1005,7 +1022,7 @@ body {
 .stat {
   background: #fff;
   flex: 1 1 150px;
-  max-width: 180px;
+  max-width: 250px;
   text-align: center;
   padding: 24px 16px;
   border-radius: 12px;
@@ -1019,14 +1036,14 @@ body {
 }
 
 .stat h3 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
   color: #2563eb;
   margin-bottom: 8px;
 }
 
 .stat p {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 300;
   color: #1e1e1e;
   margin: 0;
