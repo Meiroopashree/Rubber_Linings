@@ -315,6 +315,30 @@ const counters = document.querySelectorAll('.counter');
     });
 
 
+// const headings = [
+//   { line1: "INNOVATION &", line2: "TECHNOLOGY" },
+//   { line1: "QUALITY &", line2: "RELIABILITY" },
+//   { line1: "INDUSTRY", line2: "EXPERIENCE" },
+//   { line1: "CUSTOMER CENTERIC", line2: "RELATIONSHIP" },
+//   { line1: "SUSTAINABILITY &", line2: "SAFETY" }
+// ];
+
+// const line1Element = document.getElementById("line1");
+// const line2Element = document.getElementById("line2");
+
+// let index = 0;
+
+// // Set initial text
+// line1Element.textContent = headings[index].line1;
+// line2Element.textContent = headings[index].line2;
+
+// // Rotate every 20 seconds
+// setInterval(() => {
+//   index = (index + 1) % headings.length;
+//   line1Element.textContent = headings[index].line1;
+//   line2Element.textContent = headings[index].line2;
+// }, 2000);
+
 const headings = [
   { line1: "INNOVATION &", line2: "TECHNOLOGY" },
   { line1: "QUALITY &", line2: "RELIABILITY" },
@@ -328,14 +352,55 @@ const line2Element = document.getElementById("line2");
 
 let index = 0;
 
-// Set initial text
-line1Element.textContent = headings[index].line1;
-line2Element.textContent = headings[index].line2;
+function typeText(text, element, callback) {
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, 150); // typing speed
+    } else {
+      setTimeout(callback, 1000); // wait before deleting
+    }
+  }
+  typing();
+}
 
-// Rotate every 20 seconds
-setInterval(() => {
-  index = (index + 1) % headings.length;
-  line1Element.textContent = headings[index].line1;
-  line2Element.textContent = headings[index].line2;
-}, 2000);
+function deleteText(element, callback) {
+  let text = element.textContent;
+  function deleting() {
+    if (text.length > 0) {
+      text = text.slice(0, -1);
+      element.textContent = text;
+      setTimeout(deleting, 120); // deleting speed
+    } else {
+      callback();
+    }
+  }
+  deleting();
+}
 
+function animateHeading() {
+  const { line1, line2 } = headings[index];
+  line1Element.textContent = "";
+  line2Element.textContent = "";
+
+  // Type first line
+  typeText(line1, line1Element, () => {
+    // Type second line
+    typeText(line2, line2Element, () => {
+      // Wait, then delete second line
+      deleteText(line2Element, () => {
+        // Then delete first line
+        deleteText(line1Element, () => {
+          // Move to next heading
+          index = (index + 1) % headings.length;
+          animateHeading();
+        });
+      });
+    });
+  });
+}
+
+// Start animation
+animateHeading();
