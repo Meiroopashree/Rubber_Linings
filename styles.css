@@ -1530,5 +1530,77 @@ body {
 }
 
 
+.clover-container {
+  position: relative;
+  width: 700px;  /* increased from 400px */
+  height: 700px; /* increased from 400px */
+  animation: spin 10s linear infinite;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Clover lobes */
+.lobe {
+  position: absolute;
+  width: 210px;  /* increased from 140px */
+  height: 210px; /* increased from 140px */
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00b2dd, #ffb6ff);
+}
+
+.lobe-center { top: 195px; left: 195px; z-index: 2; }   /* 130 * 1.5 */
+.lobe-top { top: 45px; left: 195px; }                    /* 30 * 1.5 */
+.lobe-right { top: 195px; left: 375px; }                 /* 250 * 1.5 */
+.lobe-bottom { top: 345px; left: 195px; }                /* 230 * 1.5 */
+.lobe-left { top: 195px; left: 30px; }                   /* 20 * 1.5 */
+
+/* White text circles inside each lobe */
+.text-circle {
+  position: absolute;
+  width: 135px;  /* increased from 90px */
+  height: 135px; /* increased from 90px */
+  background: white;
+  border-radius: 50%;
+  color: #003554;
+  font-weight: bold;
+  font-size: 21px; /* increased from 14px */
+  line-height: 1.2;
+  text-align: center;
+  padding: 15px 7px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 3;
+}
+
+/* Position text circles inside lobes */
+.circle-center { top: 233px; left: 233px; }  /* 155 * 1.5 */
+.circle-top { top: 83px; left: 233px; }      /* 55 * 1.5 */
+.circle-right { top: 233px; left: 413px; }  /* 275 * 1.5 */
+.circle-bottom { top: 383px; left: 233px; } /* 255 * 1.5 */
+.circle-left { top: 233px; left: 83px; }    /* 55 * 1.5 */
+
+/* Spin animation for whole clover */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Counter rotate text to keep it upright */
+.text-circle span {
+  display: inline-block;
+  animation: counter-spin 10s linear infinite;
+}
+
+/* Counter-spin animation */
+@keyframes counter-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+
 
 
