@@ -1530,6 +1530,8 @@ body {
 }
 
 
+
+
 .clover-container {
   position: relative;
   width: 700px;  /* increased from 400px */
@@ -1543,8 +1545,8 @@ body {
 /* Clover lobes */
 .lobe {
   position: absolute;
-  width: 210px;  /* increased from 140px */
-  height: 210px; /* increased from 140px */
+  width: 230px;  /* increased from 140px */
+  height: 230px; /* increased from 140px */
   border-radius: 50%;
   background: linear-gradient(135deg, #00b2dd, #ffb6ff);
 }
@@ -1558,8 +1560,8 @@ body {
 /* White text circles inside each lobe */
 .text-circle {
   position: absolute;
-  width: 135px;  /* increased from 90px */
-  height: 135px; /* increased from 90px */
+  width: 145px;  /* increased from 90px */
+  height: 145px; /* increased from 90px */
   background: white;
   border-radius: 50%;
   color: #003554;
@@ -1600,7 +1602,3 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
 }
-
-
-
-
