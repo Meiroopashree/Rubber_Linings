@@ -300,21 +300,6 @@ const counters = document.querySelectorAll('.counter');
   });
 
 
-  fetch('gifData.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('gif-container');
-      const img = document.createElement('img');
-      img.src = data.gif;  // base64 GIF data from JSON
-      img.alt = 'Welcome GIF';
-      img.style.maxWidth = '300px'; // adjust as needed
-      container.appendChild(img);
-    })
-    .catch(err => {
-      console.error('Error loading GIF JSON:', err);
-    });
-
-
 // const headings = [
 //   { line1: "INNOVATION &", line2: "TECHNOLOGY" },
 //   { line1: "QUALITY &", line2: "RELIABILITY" },
@@ -343,7 +328,7 @@ const headings = [
   { line1: "INNOVATION &", line2: "TECHNOLOGY" },
   { line1: "QUALITY &", line2: "RELIABILITY" },
   { line1: "INDUSTRY", line2: "EXPERIENCE" },
-  { line1: "CUSTOMER CENTERIC", line2: "RELATIONSHIP" },
+  { line1: "CUSTOMER", line2: "RELATIONSHIP" },
   { line1: "SUSTAINABILITY &", line2: "SAFETY" }
 ];
 
@@ -358,7 +343,7 @@ function typeText(text, element, callback) {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
-      setTimeout(typing, 150); // typing speed
+      setTimeout(typing, 70); // typing speed
     } else {
       setTimeout(callback, 1000); // wait before deleting
     }
@@ -372,7 +357,7 @@ function deleteText(element, callback) {
     if (text.length > 0) {
       text = text.slice(0, -1);
       element.textContent = text;
-      setTimeout(deleting, 120); // deleting speed
+      setTimeout(deleting, 70); // deleting speed
     } else {
       callback();
     }
