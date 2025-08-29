@@ -793,7 +793,6 @@ body {
   }
 }
 
-
 /* Process Section */
 .process {
     background: #F8F6F4;
@@ -1644,3 +1643,4 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
 }
+
